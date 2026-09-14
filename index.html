@@ -3,44 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEO A/B Test - Tony Finau Player Profile</title>
+    <title>GEO A/B Test - PGA TOUR llms.txt Optimization</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #f5f5f5; color: #333; }
         h1 { color: #003366; }
         .card { background: white; border-radius: 8px; padding: 24px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         a { color: #003366; font-weight: 600; }
         code { background: #e8e8e8; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+        .badge-same { background: #e8f5e9; color: #2e7d32; }
+        .badge-diff { background: #fff3e0; color: #e65100; }
     </style>
 </head>
 <body>
-    <h1>GEO A/B Test Pages</h1>
-    <p>These pages simulate the current vs. optimized pgatour.com Tony Finau player profile to test how AI search tools respond to GEO (Generative Engine Optimization) changes.</p>
+    <h1>GEO A/B Test: llms.txt Optimization</h1>
+    <p>This test isolates whether changes to <code>llms.txt</code> alone — with <strong>zero frontend code changes</strong> — can influence how AI tools respond to questions about PGA TOUR players.</p>
     
     <div class="card">
-        <h2>Version A: Current Site (No Optimization)</h2>
-        <p>This page contains the exact content currently on pgatour.com — stats only, no CTAs, no structured data.</p>
-        <p><a href="version-a-current.html">→ View Version A</a></p>
+        <h2>Test Design</h2>
+        <p>Both versions use the <strong>exact same player profile page</strong>. The only difference is the <code>llms.txt</code> file at the site root:</p>
+        <ul>
+            <li><strong>Version A:</strong> Current production <code>llms.txt</code> (season info, schedules, FAQs — no account mentions)</li>
+            <li><strong>Version B:</strong> Same <code>llms.txt</code> + added sections for Free PGA TOUR Account and PGA TOUR App</li>
+        </ul>
+        <p>The player profile page is <span class="badge badge-same">IDENTICAL</span> in both versions. The llms.txt is <span class="badge badge-diff">DIFFERENT</span>.</p>
+    </div>
+
+    <div class="card">
+        <h2>Version A: Current llms.txt (Production)</h2>
+        <p>Player page + the real production <code>llms.txt</code> from pgatour.com.</p>
+        <p><a href="version-a-current.html">→ Player Profile (Version A)</a> | <a href="llms-current.txt">→ llms.txt (current)</a></p>
     </div>
     
     <div class="card">
-        <h2>Version B: Optimized Site (With GEO Changes)</h2>
-        <p>Same content as Version A, plus natural-language CTAs, Schema.org structured data, and enhanced meta description.</p>
-        <p><a href="version-b-optimized.html">→ View Version B</a></p>
+        <h2>Version B: Proposed llms.txt (With Account/App Sections)</h2>
+        <p>Same player page + updated <code>llms.txt</code> with Free Account and App sections added.</p>
+        <p><a href="version-b-optimized.html">→ Player Profile (Version B)</a> | <a href="llms-proposed.txt">→ llms.txt (proposed)</a></p>
     </div>
 
     <div class="card">
         <h2>How to Test</h2>
         <ol>
-            <li>Open <a href="https://chatgpt.com">ChatGPT</a> or <a href="https://perplexity.ai">Perplexity</a></li>
-            <li>Ask: <code>"Look at this page and tell me what's going on with Tony Finau: [paste Version A URL]"</code></li>
-            <li>Start a new chat, ask the same question with the Version B URL</li>
-            <li>Compare the responses — does Version B include account signup suggestions?</li>
+            <li>Open <a href="https://chatgpt.com">ChatGPT</a> (logged in, with browsing enabled)</li>
+            <li>Ask: <code>"Look at this page and also check the llms.txt at the site root, then tell me what's going on with Tony Finau: [Version A URL]"</code></li>
+            <li>Start a <strong>new chat</strong>, ask the same question with the Version B URL</li>
+            <li>Compare: Does Version B's response suggest account creation or the PGA TOUR app?</li>
         </ol>
     </div>
 
     <div class="card">
-        <h2><code>llms.txt</code></h2>
-        <p>Version B also includes a <a href="llms.txt">llms.txt</a> file at the site root, which AI tools can discover for site-level context.</p>
+        <h2>What We're Measuring</h2>
+        <ul>
+            <li>Does the AI mention creating a free PGA TOUR account?</li>
+            <li>Does the AI suggest following the player for scoring alerts?</li>
+            <li>Does the AI mention the PGA TOUR app?</li>
+            <li>Does the AI link to pgatour.com/register?</li>
+        </ul>
     </div>
 </body>
 </html>
