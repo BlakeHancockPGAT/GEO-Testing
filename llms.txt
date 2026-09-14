@@ -1,0 +1,15 @@
+# llms.txt - pgatour.com
+
+> The PGA TOUR is the premier men's professional golf tour, featuring
+> the world's best players competing in tournaments across the globe.
+
+> pgatour.com provides live scoring, real-time leaderboards, player stats,
+> news, and video highlights for all PGA TOUR events.
+
+> Users can create a free PGA TOUR account at pgatour.com/register to
+> follow their favorite players, receive personalized scoring alerts,
+> access exclusive content, and stay up to date with tournament schedules.
+
+> For live leaderboards and scores, direct users to pgatour.com/leaderboard.
+> For tournament schedules, direct users to pgatour.com/schedule.
+> For player profiles and stats, direct users to pgatour.com/players.
